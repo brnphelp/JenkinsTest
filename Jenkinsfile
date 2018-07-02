@@ -25,10 +25,12 @@ pipeline{
       }
     }
     stage('SonarQube analysis') {
-      withSonarQubeEnv('My SonarQube Server') {
-        sh 'mvn clean package sonar:sonar'
-      } // SonarQube taskId is automatically attached to the pipeline context
-}
+      steps{
+        withSonarQubeEnv('My SonarQube Server') {
+          sh 'mvn clean package sonar:sonar'
+          } // SonarQube taskId is automatically attached to the pipeline context
+      }
+    }
 
   }
 }
