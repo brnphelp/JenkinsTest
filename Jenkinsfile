@@ -22,10 +22,13 @@ pipeline{
     stage('Deliver'){
       steps{
         sh './jenkins/scripts/deliver.sh'
-        input message: 'Finished using the site? Click "Proceed" to continue'
-        sh './jenkins/scripts/kill.sh'
       }
     }
+    stage('SonarQube analysis') {
+      withSonarQubeEnv('My SonarQube Server') {
+        sh 'mvn clean package sonar:sonar'
+      } // SonarQube taskId is automatically attached to the pipeline context
+}
 
   }
 }
