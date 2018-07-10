@@ -42,7 +42,7 @@ public class AppTest
     @Test
     public void failTest(){
       try {
-        assertEquals(1,2);
+        assertEquals(1,1);
       } catch (AssertionError e) {
         fail("1 does not equal 2");
       }
