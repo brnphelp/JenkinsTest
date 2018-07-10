@@ -39,6 +39,14 @@ public class AppTest
             fail("\"message\" is not \"Hello World!\"");
         }
     }
+    @Test
+    public void failTest(){
+      try {
+        assertEquals(1,2);
+      } catch (AssertionError e) {
+        fail("1 does not equal 2");
+      }
+    }
 
     @After
     public void cleanUpStreams() {
