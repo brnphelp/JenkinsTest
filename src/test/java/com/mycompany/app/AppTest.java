@@ -40,6 +40,16 @@ public class AppTest
         }
     }
     @Test
+    public void passTest()
+    {
+      try {
+        assertEquals(1,1);
+      } catch (AssertionError e){
+        fail("1 does equal 1")
+      }
+
+    }
+    @Test
     public void failTest(){
       try {
         assertEquals(1,1);
